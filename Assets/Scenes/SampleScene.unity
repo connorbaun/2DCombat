@@ -225,6 +225,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114182488448587876, guid: d9a9ddf3bcf8b9d429129f0ebfc3ea6d,
+        type: 2}
+      propertyPath: attackForce
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 50106862368106712, guid: d9a9ddf3bcf8b9d429129f0ebfc3ea6d,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50106862368106712, guid: d9a9ddf3bcf8b9d429129f0ebfc3ea6d,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61019962364359396, guid: d9a9ddf3bcf8b9d429129f0ebfc3ea6d,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a3bd437579ed9eb4b941d8da379e83db, type: 2}
+    - target: {fileID: 114182488448587876, guid: d9a9ddf3bcf8b9d429129f0ebfc3ea6d,
+        type: 2}
+      propertyPath: dashForce
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9a9ddf3bcf8b9d429129f0ebfc3ea6d, type: 2}
   m_IsPrefabParent: 0

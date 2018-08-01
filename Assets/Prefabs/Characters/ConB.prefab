@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a218c5a3dfa0141a2e92eb6ac966ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fighterName: 
 --- !u!114 &114182488448587876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  attackForce: 100
 --- !u!114 &114751089065972820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,8 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   speed: 10
+  _fighterName: conB
   motor: {fileID: 0}
-  anim: {fileID: 0}
+  myAnimator: {fileID: 0}
 --- !u!212 &212890526064888752
 SpriteRenderer:
   m_ObjectHideFlags: 1
