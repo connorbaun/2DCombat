@@ -40,11 +40,11 @@ public class PlayerController : MonoBehaviour {
         if (hInput != 0)
         {
             myAnimator.RunAnim(_fighterName);
-        }
-        else
+        } else if (hInput == 0)
         {
             myAnimator.IdleAnim(_fighterName);
         }
+
 
         if (Input.GetButtonDown(playerNumber + "Fire1"))
         {

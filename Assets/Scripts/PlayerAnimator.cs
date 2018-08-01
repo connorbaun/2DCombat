@@ -16,24 +16,28 @@ public class PlayerAnimator : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        
 	}
 
     public void RunAnim(string fighterName)
     {
-        {
-            anim.Play(fighterName+"_run");
-        }
+        anim.Play(fighterName+"_run");
     }
 
     public void IdleAnim(string fighterName)
     {  
-          anim.Play(fighterName+"_idle");
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch"))
+        {
+            anim.Play(fighterName + "_idle");
+        }
+        
     }
 
     public void PunchAnim(string fighterName)
     {
+        
         anim.Play(fighterName + "_punch");
     }
 }
