@@ -5,18 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public int playerNumber = 0;
     public int speed; //how fast should we move when we push left or right?
+    public string _fighterName = "conB";
 
     [SerializeField]
     private PlayerMotor motor; //ref to the motor, where we will send our inputs to be applied
 
     [SerializeField]
-    private PlayerAnimator anim; //a ref to the animation script, which will tell our sprite how to animate
+    private PlayerAnimator myAnimator; //a ref to the animation script, which will tell our sprite how to animate
 
 	// Use this for initialization
 	void Start ()
     {
         motor = GetComponent<PlayerMotor>(); //tell unity what we mean when we say motor
-        anim = GetComponent<PlayerAnimator>(); //tell untiy what we mean when we say anim
+        myAnimator = GetComponent<PlayerAnimator>(); //tell untiy what we mean when we say anim
 	}
 	
 	// Update is called once per frame
@@ -35,5 +36,19 @@ public class PlayerController : MonoBehaviour {
 
         //send that _velocity vec3 over to motor.
         motor.ReceiveVelocity(_velocity); //since this is in Update, the motor will constantly receive our current _velocity, and move our player based on that value
+
+        if (hInput != 0)
+        {
+            myAnimator.RunAnim(_fighterName);
+        }
+        else
+        {
+            myAnimator.IdleAnim(_fighterName);
+        }
+
+        if (Input.GetButtonDown(playerNumber + "Fire1"))
+        {
+            myAnimator.PunchAnim(_fighterName);
+        }
 	}
 }

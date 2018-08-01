@@ -4,13 +4,36 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour {
 
+    public string fighterName = null;
+
+    private Animator anim;
+
+    
 	// Use this for initialization
 	void Start () {
-		
+
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void RunAnim(string fighterName)
+    {
+        {
+            anim.Play(fighterName+"_run");
+        }
+    }
+
+    public void IdleAnim(string fighterName)
+    {  
+          anim.Play(fighterName+"_idle");
+    }
+
+    public void PunchAnim(string fighterName)
+    {
+        anim.Play(fighterName + "_punch");
+    }
 }
