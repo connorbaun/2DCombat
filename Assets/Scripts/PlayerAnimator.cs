@@ -23,7 +23,11 @@ public class PlayerAnimator : MonoBehaviour {
 
     public void RunAnim(string fighterName)
     {
-        anim.Play(fighterName+"_run");
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch"))
+        {
+            anim.Play(fighterName + "_run");
+        }
+            
     }
 
     public void IdleAnim(string fighterName)
@@ -37,7 +41,9 @@ public class PlayerAnimator : MonoBehaviour {
 
     public void PunchAnim(string fighterName)
     {
-        
-        anim.Play(fighterName + "_punch");
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch"))
+        {
+            anim.Play(fighterName + "_punch");
+        }
     }
 }
