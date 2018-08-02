@@ -45,16 +45,38 @@ public class PlayerController : MonoBehaviour {
             myAnimator.IdleAnim(_fighterName);
         }
 
+        myAnimator.FlipSprite(hInput);
+
+   
+
 
         if (Input.GetButtonDown(playerNumber + "Fire1"))
         {
             myAnimator.PunchAnim(_fighterName);
             
+
         }
 
         if (Input.GetButtonDown(playerNumber + "Fire2"))
         {
-            motor.PerformDash();
+            motor.PerformDash(_hMov);
         }
+
+        if (Input.GetButtonDown(playerNumber + "Fire3"))
+        {
+            myAnimator.SpecialAnim(_fighterName);
+        }
+
+        /* if (Input.GetButton(playerNumber + "Fire3"))
+        {
+            motor.PerformJump();
+        } */
 	}
+
+    public IEnumerator UnlockController(float time)
+    {
+        enabled = false;
+        yield return new WaitForSeconds(time);
+        enabled = true;
+    }
 }

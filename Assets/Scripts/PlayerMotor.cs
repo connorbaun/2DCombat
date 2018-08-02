@@ -13,6 +13,8 @@ public class PlayerMotor : MonoBehaviour {
     [SerializeField]
     private float dashForce = 50;
 
+    public float jumpForce = 500;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -36,8 +38,22 @@ public class PlayerMotor : MonoBehaviour {
         rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
     }
 
-    public void PerformDash()
+    public void PerformDash(Vector3 hMov)
     {
-        rb.AddForce(velocity * dashForce);
+        rb.AddForce(hMov * dashForce);
+    }
+
+    public void PerformJump()
+    {
+        rb.AddForce((Vector2.up * jumpForce));
+        //NOTE: JUMP IS CURRENTLY DISABLED INSIDE OF PLAYCONTROLLER
+    } 
+
+
+    public IEnumerator UnlockMotor(float time)
+    {
+        enabled = false;
+        yield return new WaitForSeconds(time);
+        enabled = true;
     }
 }
