@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: conB_idle
+  m_Name: conO_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300000, guid: bb8422c8df67c894f96fe497a6efaf2c, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300002, guid: 6ef44dd0e9de6724eb75d0998769cc05, type: 3}
+      value: {fileID: 21300002, guid: bb8422c8df67c894f96fe497a6efaf2c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,7 +42,7 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: bb8422c8df67c894f96fe497a6efaf2c, type: 3}
-    - {fileID: 21300002, guid: 6ef44dd0e9de6724eb75d0998769cc05, type: 3}
+    - {fileID: 21300002, guid: bb8422c8df67c894f96fe497a6efaf2c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -41,6 +41,7 @@ public class PlayerMotor : MonoBehaviour {
     public void PerformDash(Vector3 hMov)
     {
         rb.AddForce(hMov * dashForce);
+        
     }
 
     public void PerformJump()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public int playerNumber = 0;
     public int speed; //how fast should we move when we push left or right?
-    public string _fighterName = "conB";
+    public string _fighterName = "conO";
 
     [SerializeField]
     private PlayerMotor motor; //ref to the motor, where we will send our inputs to be applied
