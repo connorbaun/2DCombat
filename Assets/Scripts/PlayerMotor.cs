@@ -15,10 +15,14 @@ public class PlayerMotor : MonoBehaviour {
 
     public float jumpForce = 500;
 
+    private PlayerController controller;
+
 	// Use this for initialization
 	void Start ()
     {
+        StartCoroutine(UnlockMotor(3));
         rb = GetComponent<Rigidbody2D>(); //tell unity to seek out the rb attached to the player obj
+        controller = GetComponent<PlayerController>();
         
 	}
 
@@ -56,5 +60,7 @@ public class PlayerMotor : MonoBehaviour {
         enabled = false;
         yield return new WaitForSeconds(time);
         enabled = true;
+        controller.canInput = true;
+        
     }
 }

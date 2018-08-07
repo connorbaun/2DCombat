@@ -21,13 +21,22 @@ public class PlayerAnimator : MonoBehaviour {
         anim = GetComponent<Animator>(); //tell unity to seek the animator attached to the player obj.
         motor = GetComponent<PlayerMotor>(); //tell unity to seek the playermotor
         controller = GetComponent<PlayerController>(); //tell unity to seek the player controller
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
+
         
 	}
+
+    public void SetStartingDirection(int num) //makes sure the players are facing the right way at spawn
+    {
+        if (num == 1) //if ur player1
+        {
+            transform.localScale = new Vector3(5, 5, 5); //then face right at spawn
+        }
+        if (num == 2) //if ur player2
+        {
+            transform.localScale = new Vector3(-5, 5, 5); //face left at spawn
+        }
+    }
+	
 
     public void RunAnim(string fighterName) //this function takes in fighter's name from controller, which tells the game which anim to play.
     {

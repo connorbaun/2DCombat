@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114751089065972820}
   - component: {fileID: 114119706951524782}
   m_Layer: 0
-  m_Name: ConB
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   speed: 10
+  canInput: 0
   _fighterName: conB
   motor: {fileID: 0}
   myAnimator: {fileID: 0}
@@ -186,7 +187,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6ef44dd0e9de6724eb75d0998769cc05, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -194,5 +195,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
