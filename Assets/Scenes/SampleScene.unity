@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -526,11 +526,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4920621952778612, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.02
+      value: -10.02
       objectReference: {fileID: 0}
     - target: {fileID: 4920621952778612, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.35000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920621952778612, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -559,7 +559,22 @@ Prefab:
     - target: {fileID: 114310727113523936, guid: c35c1ec6081f4e546bf46b62da253fb7,
         type: 2}
       propertyPath: _fighterName
-      value: conB
+      value: bern
+      objectReference: {fileID: 0}
+    - target: {fileID: 212388205167756560, guid: c35c1ec6081f4e546bf46b62da253fb7,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.671875
+      objectReference: {fileID: 0}
+    - target: {fileID: 212388205167756560, guid: c35c1ec6081f4e546bf46b62da253fb7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.6015625
+      objectReference: {fileID: 0}
+    - target: {fileID: 212388205167756560, guid: c35c1ec6081f4e546bf46b62da253fb7,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
@@ -792,8 +807,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_WholeNumbers: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1091,11 +1106,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4920621952778612, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.07
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 4920621952778612, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.35000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920621952778612, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1130,14 +1145,14 @@ Prefab:
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1458145634049248, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114310727113523936, guid: c35c1ec6081f4e546bf46b62da253fb7,
         type: 2}
       propertyPath: _fighterName
       value: conO
-      objectReference: {fileID: 0}
-    - target: {fileID: 1458145634049248, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c35c1ec6081f4e546bf46b62da253fb7, type: 2}

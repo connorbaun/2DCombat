@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public int playerNumber = 1;
+    public int playerNumber = 0;
     public int speed; //how fast should we move when we push left or right?
 
-    public string _fighterName = "conO";
+    public string _fighterName = null;
 
     [SerializeField]
     private PlayerMotor motor; //ref to the motor, where we will send our inputs to be applied
@@ -23,14 +23,22 @@ public class PlayerController : MonoBehaviour {
         myAnimator = GetComponent<PlayerAnimator>(); //tell untiy what we mean when we say anim
 
         hud = FindObjectOfType<HUDManager>();
-        hud.CollectFighterNames(playerNumber, _fighterName);
+        /*if (playerNumber == 1)
+        {
+            hud.CollectFighter1Name(_fighterName);
 
+        }
+        if (playerNumber == 2)
+        {
+            hud.CollectFighter2Name(_fighterName);
+        } */
+        hud.CollectNames(playerNumber, _fighterName);
+  
     }
 
     // Update is called once per frame
     void Update ()
     {
-
         //collect inputs in the form of floats
         float hInput = Input.GetAxisRaw(playerNumber+"Horizontal"); //if we push arrow key left/right, we will get -1, 0, or 1
 
