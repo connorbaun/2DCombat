@@ -7,6 +7,8 @@ public class HUDManager : MonoBehaviour {
     public Text p1Nameplate;
     public Text p2Nameplate;
 
+
+
     private string p1FighterName;
     private string p2FighterName;
 
