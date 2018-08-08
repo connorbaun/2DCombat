@@ -3,29 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour {
-    public float _countdownTime = 3;
 
-    public GameObject player1;
-    public GameObject player2;
+    public float _countdownTime = 3; //sent to other scripts, this is how long it take for match to countdown
 
-    private PlayerController p1Cont;
-    private PlayerController p2Cont;
+    public GameObject player1; //reference to player1
+    public GameObject player2; //reference to player2
 
-    private PlayerMotor p2Mot;
-    private PlayerMotor p1Mot;
+    private PlayerController p1Cont; //name for player 1's controller
+    private PlayerController p2Cont; //name for player 2's controller
 
-    private HealthManager health;
+    private PlayerMotor p1Mot; //name for player 1's motor
+    private PlayerMotor p2Mot; //name for player 2's motor
+
+
+    private HealthManager health; //ref to the healthmanager gameobject
+
+    private HUDManager hud;
 
 
 	// Use this for initialization
 	void Start ()
     {
         health = FindObjectOfType<HealthManager>();
+        hud = FindObjectOfType<HUDManager>();
 
-        p1Cont = player1.GetComponent<PlayerController>();
-        p2Cont = player2.GetComponent<PlayerController>();
-        p1Mot = player1.GetComponent<PlayerMotor>();
-        p2Mot = player2.GetComponent<PlayerMotor>();
+        p1Cont = player1.GetComponent<PlayerController>(); //find p1 controller
+        p2Cont = player2.GetComponent<PlayerController>(); //find p1 motor
+        p1Mot = player1.GetComponent<PlayerMotor>(); //find p2 controller
+        p2Mot = player2.GetComponent<PlayerMotor>(); //find p2 motor
+
+        RoundCountdown();
 	}
 	
 	// Update is called once per frame
@@ -48,22 +55,16 @@ public class StateManager : MonoBehaviour {
         p2Mot.StartCoroutine(p2Mot.UnlockMotor(_countdownTime));
         p2Cont.StartCoroutine(p2Cont.UnlockController(_countdownTime));
 
-       
-
-        
-
-
-
         //refill player hp levels
         health.p1HP = 100;
         health.p2HP = 100;
 
         //refill player stamina
-            //Not implemented yet
+        //Not implemented yet
 
         //draw countdown to screen
-            //Not implemented yet
-
+        //Not implemented yet
+        hud.StartCoroutine(hud.CountdownUI(_countdownTime));
          //remove countdown UI from screen and let players FIGHT!
             //Not implemented yet ya dang goobis.
     }

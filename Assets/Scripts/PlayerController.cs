@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour {
 
     public IEnumerator UnlockController(float time)
     {
-        Debug.Log("our controller should be frozen rn");
+        //Debug.Log("our controller should be frozen rn");
         canInput = false;
         yield return new WaitForSeconds(time);
         canInput = true;

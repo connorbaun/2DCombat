@@ -7,6 +7,8 @@ public class HUDManager : MonoBehaviour {
     public Text p1Nameplate;
     public Text p2Nameplate;
 
+    public Text countdownText;
+
 
 
     private string p1FighterName;
@@ -48,6 +50,20 @@ public class HUDManager : MonoBehaviour {
         {
             p2Nameplate.text = name.ToString();
         }
+    }
+
+    public IEnumerator CountdownUI(float time)
+    {
+        countdownText.text = "Get Ready...";
+        countdownText.color = Color.white;
+
+        yield return new WaitForSeconds(time);
+
+        countdownText.text = "FIGGITY FIGHT!";
+        countdownText.color = Color.red;
+
+        yield return new WaitForSeconds(time);
+        countdownText.text = "";
     }
 
 }
