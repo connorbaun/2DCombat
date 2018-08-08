@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
 
     private HUDManager hud;
 
+    private StateManager state;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -29,12 +31,19 @@ public class PlayerController : MonoBehaviour {
         hud = FindObjectOfType<HUDManager>(); //find the HUDMANAGER obj
         hud.CollectNames(playerNumber, _fighterName); //collect player names for nameplates
 
+        state = FindObjectOfType<StateManager>();
+
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (canInput) //if the countdown is done
+        if (Input.GetButtonDown("Submit")) //let players restart the round by pressing ps button
+        {
+            state.RoundCountdown(); //repos players etc
+        }
+
+        if (canInput) //if player should be allowed to move during this frame...
         {
             //collect inputs in the form of floats
             float hInput = Input.GetAxisRaw(playerNumber + "Horizontal"); //if we push arrow key left/right, we will get -1, 0, or 1
@@ -80,7 +89,7 @@ public class PlayerController : MonoBehaviour {
             {
                 myAnimator.SpecialAnim(_fighterName);
             }
-        } else
+        } else //otherwise just put him in the idle state NOTE This will cause problems when death state becomes implemented
         {
             myAnimator.IdleAnim(_fighterName);
         }
@@ -95,8 +104,9 @@ public class PlayerController : MonoBehaviour {
 
     public IEnumerator UnlockController(float time)
     {
-        enabled = false;
+        Debug.Log("our controller should be frozen rn");
+        canInput = false;
         yield return new WaitForSeconds(time);
-        enabled = true;
+        canInput = true;
     }
 }
