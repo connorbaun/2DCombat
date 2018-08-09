@@ -38,10 +38,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetButtonDown("Submit")) //let players restart the round by pressing ps button
-        {
-            state.RoundCountdown(); //repos players etc
-        }
+
 
         if (canInput) //if player should be allowed to move during this frame...
         {
@@ -59,6 +56,13 @@ public class PlayerController : MonoBehaviour {
             //send that _velocity vec3 over to motor.
             motor.ReceiveVelocity(_velocity); //since this is in Update, the motor will constantly receive our current _velocity, and move our player based on that value
 
+
+            if (Input.GetButtonDown("Submit")) //let players restart the round by pressing ps button
+            {
+                state.RoundCountdown(); //repos players etc
+            }
+
+
             if (hInput != 0)
             {
                 myAnimator.RunAnim(_fighterName);
@@ -68,10 +72,7 @@ public class PlayerController : MonoBehaviour {
                 myAnimator.IdleAnim(_fighterName);
             }
 
-            myAnimator.FlipSprite(hInput);
-
-
-
+            myAnimator.FlipSprite(hInput); //send our current hInput over to SpriteAnimator
 
             if (Input.GetButtonDown(playerNumber + "Fire1"))
             {
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour {
             {
                 myAnimator.SpecialAnim(_fighterName);
             }
-        } else //otherwise just put him in the idle state NOTE This will cause problems when death state becomes implemented
+        } else //otherwise just put him in the idle state NOTE This will prob cause problems when death state becomes implemented
         {
             myAnimator.IdleAnim(_fighterName);
         }
@@ -104,9 +105,20 @@ public class PlayerController : MonoBehaviour {
 
     public IEnumerator UnlockController(float time)
     {
-        //Debug.Log("our controller should be frozen rn");
-        canInput = false;
+        canInput = false; //make it so we cannot use the controller
+
         yield return new WaitForSeconds(time);
+
+        canInput = true;
+    }
+
+    public void FreezeController()
+    {
+        canInput = false;
+    }
+
+    public void UnfreezeController()
+    {
         canInput = true;
     }
 }

@@ -62,8 +62,10 @@ public class HUDManager : MonoBehaviour {
         countdownText.text = "FIGGITY FIGHT!";
         countdownText.color = Color.red;
 
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(1);
+
         countdownText.text = "";
+
     }
 
 }

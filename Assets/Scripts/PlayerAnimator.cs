@@ -21,8 +21,6 @@ public class PlayerAnimator : MonoBehaviour {
         anim = GetComponent<Animator>(); //tell unity to seek the animator attached to the player obj.
         motor = GetComponent<PlayerMotor>(); //tell unity to seek the playermotor
         controller = GetComponent<PlayerController>(); //tell unity to seek the player controller
-
-        
 	}
 
     public void SetStartingDirection(int num) //makes sure the players are facing the right way at spawn
@@ -51,10 +49,13 @@ public class PlayerAnimator : MonoBehaviour {
     {
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch") && !anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_special")) //as long as we are not punching...
         {
-            anim.Play(fighterName + "_idle"); //go idle. we can idle as long as we aren't in the middle of a punching anim.
+            anim.Play(fighterName + "_idle"); //go idle. we can idle as long as we aren't in the middle of a special/punching anim.
         }
-        
-        
+    }
+
+    public void ForceIdle(string fighterName)
+    {
+        anim.Play(fighterName + "_idle");
     }
 
     public void PunchAnim(string fighterName) //punching anim.
@@ -70,8 +71,9 @@ public class PlayerAnimator : MonoBehaviour {
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch") && !anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_special"))
         {
             anim.Play(fighterName + "_special"); //perform special anim here
-            StartCoroutine(controller.UnlockController(specialTime)); //do not allow the player to hit anything
-            StartCoroutine(motor.UnlockMotor(specialTime)); //do not allow the player's character to move
+            //StartCoroutine(controller.UnlockController(specialTime)); //do not allow the player to hit anything
+            //StartCoroutine(motor.UnlockMotor(specialTime)); //do not allow the player's character to move
+
         }
         
 

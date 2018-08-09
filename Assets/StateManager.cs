@@ -43,9 +43,18 @@ public class StateManager : MonoBehaviour {
 
     public void RoundCountdown()
     {
-        //reset player pos
+        //reset player pos/orientations
         player1.transform.position = new Vector3(-10, 0, 0);
         player2.transform.position = new Vector3(10, 0, 0);
+        player1.GetComponent<PlayerAnimator>().SetStartingDirection(1);
+        player2.GetComponent<PlayerAnimator>().SetStartingDirection(2);
+
+        player1.GetComponent<PlayerAnimator>().ForceIdle(player1.GetComponent<PlayerController>()._fighterName);
+        player2.GetComponent<PlayerAnimator>().ForceIdle(player2.GetComponent<PlayerController>()._fighterName);
+
+
+
+
 
         //freeze motor and controller (_countdownTime)
         p1Cont.StartCoroutine(p1Cont.UnlockController(_countdownTime));
@@ -68,4 +77,5 @@ public class StateManager : MonoBehaviour {
          //remove countdown UI from screen and let players FIGHT!
             //Not implemented yet ya dang goobis.
     }
+
 }

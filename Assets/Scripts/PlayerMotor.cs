@@ -58,10 +58,18 @@ public class PlayerMotor : MonoBehaviour {
 
     public IEnumerator UnlockMotor(float time)
     {
-        enabled = false;
+        enabled = false; 
         yield return new WaitForSeconds(time);
         enabled = true;
-        //controller.canInput = true;
-        
+    }
+    
+    public void FreezeMotor()
+    {
+        enabled = false;
+    }
+
+    public void UnfreezeMotor()
+    {
+        enabled = true;
     }
 }
