@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public int playerNumber = 0;
+    public int playerNumber = 0; //which player are we? one or two?
     public int speed; //how fast should we move when we push left or right?
-    public bool canInput = false;
+    public int fighterIndex = 0; //player 1's current selected fighter
+    public int fighterIndex2 = 0; //player 2's current selected fighter
 
-    public string _fighterName = null;
+    public bool isSelecting = true; //are we currently at the start menu?
+    public bool canInput = false; //can we use the controller at this time?
+
+    public List<string> fighters = new List<string>(); //a ref to the character roster in the game
+   
+    public string _fighterName = null; //a ref to the character's fighter name
 
     [SerializeField]
     private PlayerMotor motor; //ref to the motor, where we will send our inputs to be applied
@@ -15,9 +21,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private PlayerAnimator myAnimator; //a ref to the animation script, which will tell our sprite how to animate
 
-    private HUDManager hud;
+    private HUDManager hud; // a ref to the UIManager
 
-    private StateManager state;
+    private StateManager state; //a ref to the gamestate manager
+
+
 
 	// Use this for initialization
 	void Start ()
@@ -29,15 +37,66 @@ public class PlayerController : MonoBehaviour {
         myAnimator.SetStartingDirection(playerNumber); //send the playernum over to anim
 
         hud = FindObjectOfType<HUDManager>(); //find the HUDMANAGER obj
-        hud.CollectNames(playerNumber, _fighterName); //collect player names for nameplates
 
         state = FindObjectOfType<StateManager>();
+
+        fighters.Add("conB");
+        fighters.Add("conO");
+        fighters.Add("bern");
 
     }
 
     // Update is called once per frame
     void Update ()
     {
+       if (isSelecting == true)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (fighterIndex >= fighters.Count - 1)
+                {
+                    fighterIndex = 0;
+                }
+                else
+                {
+                    fighterIndex++;
+                }
+                //find some way to scroll through the list of fighters.
+            }
+
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                if (fighterIndex2 >= fighters.Count - 1)
+                {
+                    fighterIndex2 = 0;
+                }
+                else
+                {
+                    fighterIndex2++;
+                }
+            }
+
+            if (Input.GetButtonDown("Pause"))
+            {
+                isSelecting = false;
+                state.RoundCountdown();
+            }
+        }
+
+        if (playerNumber == 1)
+        {
+            _fighterName = fighters[fighterIndex];
+        }
+
+        if (playerNumber == 2)
+        {
+            _fighterName = fighters[fighterIndex2];
+
+        }
+
+        hud.CollectNames(playerNumber, _fighterName); //collect player names for nameplates
+
 
 
         if (canInput) //if player should be allowed to move during this frame...
@@ -59,6 +118,7 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetButtonDown("Submit")) //let players restart the round by pressing ps button
             {
+                //Time.timeScale = 0;
                 state.RoundCountdown(); //repos players etc
             }
 

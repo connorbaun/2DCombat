@@ -11,6 +11,7 @@ public class PlayerAnimator : MonoBehaviour {
 
     private PlayerMotor motor;
     private PlayerController controller;
+    private StaminaManager stamina;
 
     //NOTE: we call the correct anims for diff chars by using the same naming conventions for each char's animations. this way, we can just fill in the char's name to retrieve a particular animation for a particular character!
 
@@ -21,6 +22,7 @@ public class PlayerAnimator : MonoBehaviour {
         anim = GetComponent<Animator>(); //tell unity to seek the animator attached to the player obj.
         motor = GetComponent<PlayerMotor>(); //tell unity to seek the playermotor
         controller = GetComponent<PlayerController>(); //tell unity to seek the player controller
+        stamina = FindObjectOfType<StaminaManager>();
 	}
 
     public void SetStartingDirection(int num) //makes sure the players are facing the right way at spawn
@@ -60,6 +62,7 @@ public class PlayerAnimator : MonoBehaviour {
 
     public void PunchAnim(string fighterName) //punching anim.
     {
+
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch") && !anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_special")) //as long as we arent already punching...
         {
             anim.Play(fighterName + "_punch"); //play the punch  anim from the designated character.
@@ -68,6 +71,7 @@ public class PlayerAnimator : MonoBehaviour {
 
     public void SpecialAnim(string fighterName) //special move anim.
     {
+        
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_punch") && !anim.GetCurrentAnimatorStateInfo(0).IsName(fighterName + "_special"))
         {
             anim.Play(fighterName + "_special"); //perform special anim here

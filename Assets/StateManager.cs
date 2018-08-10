@@ -32,7 +32,9 @@ public class StateManager : MonoBehaviour {
         p1Mot = player1.GetComponent<PlayerMotor>(); //find p2 controller
         p2Mot = player2.GetComponent<PlayerMotor>(); //find p2 motor
 
-        RoundCountdown();
+
+        //RoundCountdown();
+
 	}
 	
 	// Update is called once per frame
@@ -40,6 +42,7 @@ public class StateManager : MonoBehaviour {
     {
 		
 	}
+
 
     public void RoundCountdown()
     {
@@ -51,6 +54,9 @@ public class StateManager : MonoBehaviour {
 
         player1.GetComponent<PlayerAnimator>().ForceIdle(player1.GetComponent<PlayerController>()._fighterName);
         player2.GetComponent<PlayerAnimator>().ForceIdle(player2.GetComponent<PlayerController>()._fighterName);
+
+        hud.InstrucText.text = "";
+        hud.TitleText.text = "";
 
 
 
@@ -77,5 +83,7 @@ public class StateManager : MonoBehaviour {
          //remove countdown UI from screen and let players FIGHT!
             //Not implemented yet ya dang goobis.
     }
+
+
 
 }

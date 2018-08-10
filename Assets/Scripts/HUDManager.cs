@@ -7,6 +7,14 @@ public class HUDManager : MonoBehaviour {
     public Text p1Nameplate;
     public Text p2Nameplate;
 
+    public Text TitleText;
+    public Text InstrucText;
+
+    public Image p1Vic1;
+    public Image p1Vic2;
+    public Image p2Vic1;
+    public Image p2Vic2;
+
     public Text countdownText;
 
 
@@ -19,14 +27,21 @@ public class HUDManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		
+        SelectionUI();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+
+
+    }
+
+    public void SelectionUI()
+    {
+        TitleText.text = "THE FIGGITY FACEOFF";
+        InstrucText.text = "Press X to change fighter. Press OPTIONS to begin";
+    }
 
     public void CollectFighter1Name(string fightName)
     {
@@ -54,6 +69,7 @@ public class HUDManager : MonoBehaviour {
 
     public IEnumerator CountdownUI(float time)
     {
+
         countdownText.text = "Get Ready...";
         countdownText.color = Color.white;
 
