@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
         fighters.Add("conB");
         fighters.Add("conO");
         fighters.Add("bern");
+        fighters.Add("christian");
 
     }
 
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour {
 
         }
 
-        hud.CollectNames(playerNumber, _fighterName); //collect player names for nameplates
+        hud.CollectNames(playerNumber, _fighterName); //collect player names for nameplates and send it over to the HUDmanager so it displays the proper name for each player
 
 
 
@@ -153,10 +154,10 @@ public class PlayerController : MonoBehaviour {
         } else //otherwise just put him in the idle state NOTE This will prob cause problems when death state becomes implemented
         {
             myAnimator.IdleAnim(_fighterName);
-        }
+        } 
        
 
-        /* if (Input.GetButton(playerNumber + "Fire3"))
+        /*if (Input.GetButtonDown(playerNumber + "Fire3"))
         {
             motor.PerformJump();
         } */

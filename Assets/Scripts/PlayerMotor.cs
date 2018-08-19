@@ -45,6 +45,7 @@ public class PlayerMotor : MonoBehaviour {
 
     public void PerformDash(Vector3 hMov)
     {
+        
         rb.AddForce(hMov * dashForce);
         
     }
@@ -72,4 +73,6 @@ public class PlayerMotor : MonoBehaviour {
     {
         enabled = true;
     }
+
+
 }
