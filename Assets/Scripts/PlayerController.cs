@@ -12,7 +12,14 @@ public class PlayerController : MonoBehaviour {
     public bool canInput = false; //can we use the controller at this time?
 
     public List<string> fighters = new List<string>(); //a ref to the character roster in the game
-   
+
+    public List<Fighter> theFighters = new List<Fighter>();
+    public Fighter conB = new Fighter("conB", 8, 18, 9);
+    public Fighter conO = new Fighter("conO", 12, 20, 6);
+    public Fighter kev = new Fighter("kevin", 16, 20, 3);
+    public Fighter bern = new Fighter("bern", 5, 20, 15);
+    public Fighter christian = new Fighter("christian", 8, 24, 10);
+    
     public string _fighterName = null; //a ref to the character's fighter name
 
     [SerializeField]
@@ -44,7 +51,13 @@ public class PlayerController : MonoBehaviour {
         fighters.Add("conO");
         fighters.Add("bern");
         fighters.Add("christian");
+        fighters.Add("kevin");
 
+        theFighters.Add(conB);
+        theFighters.Add(conO);
+        theFighters.Add(kev);
+        theFighters.Add(bern);
+        theFighters.Add(christian);
     }
 
     // Update is called once per frame
@@ -54,7 +67,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                if (fighterIndex >= fighters.Count - 1)
+                if (fighterIndex >= theFighters.Count - 1)
                 {
                     fighterIndex = 0;
                 }
@@ -68,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetButtonDown("Fire2"))
             {
-                if (fighterIndex2 >= fighters.Count - 1)
+                if (fighterIndex2 >= theFighters.Count - 1)
                 {
                     fighterIndex2 = 0;
                 }
@@ -87,12 +100,12 @@ public class PlayerController : MonoBehaviour {
 
         if (playerNumber == 1)
         {
-            _fighterName = fighters[fighterIndex];
+            _fighterName = theFighters[fighterIndex].name;
         }
 
         if (playerNumber == 2)
         {
-            _fighterName = fighters[fighterIndex2];
+            _fighterName = theFighters[fighterIndex2].name;
 
         }
 

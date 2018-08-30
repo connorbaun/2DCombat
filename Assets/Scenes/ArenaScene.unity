@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -897,17 +897,17 @@ Prefab:
     - target: {fileID: 212388205167756560, guid: c35c1ec6081f4e546bf46b62da253fb7,
         type: 2}
       propertyPath: m_Size.x
-      value: 2.18
+      value: 0.74444443
       objectReference: {fileID: 0}
     - target: {fileID: 212388205167756560, guid: c35c1ec6081f4e546bf46b62da253fb7,
         type: 2}
       propertyPath: m_Size.y
-      value: 2
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 212388205167756560, guid: c35c1ec6081f4e546bf46b62da253fb7,
         type: 2}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114310727113523936, guid: c35c1ec6081f4e546bf46b62da253fb7,
         type: 2}
@@ -985,6 +985,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 868987682}
+--- !u!1 &1120592901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1120592902}
+  - component: {fileID: 1120592903}
+  m_Layer: 0
+  m_Name: Character Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120592902
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120592901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1760134004}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120592903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120592901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b82f807eb5e88942b336739ef36450b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1203303845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1821,7 @@ Transform:
   - {fileID: 714077202}
   - {fileID: 1397912191}
   - {fileID: 745730519}
+  - {fileID: 1120592902}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
