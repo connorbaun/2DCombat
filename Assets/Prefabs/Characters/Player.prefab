@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114751089065972820}
   - component: {fileID: 114119706951524782}
   m_Layer: 0
-  m_Name: ConB
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   speed: 10
+  fighterIndex: 0
+  fighterIndex2: 0
+  isSelecting: 1
   canInput: 0
+  fighters: []
   _fighterName: conB
   motor: {fileID: 0}
   myAnimator: {fileID: 0}

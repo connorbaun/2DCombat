@@ -23,4 +23,17 @@ public class HealthManager : MonoBehaviour {
         p2Health.value = p2HP;
 	}
 
+    public void DealDamage(int playerNum, int damDealt)
+    {
+        if (playerNum == 1)
+        {
+            p1HP -= damDealt;
+        }
+
+        if (playerNum == 2)
+        {
+            p2HP -= damDealt;
+        }
+    }
+
 }

@@ -32,14 +32,26 @@ public class PlayerController : MonoBehaviour {
 
     private StateManager state; //a ref to the gamestate manager
 
+    private HealthManager health;
+
+    private RaycastHit2D punchingHitbox;
+    public float rayLength;
+
+
+
+
+
+
+    
 
 
 	// Use this for initialization
 	void Start ()
     {
         
+        rayLength = 0.5f;
+        health = FindObjectOfType<HealthManager>();
         motor = GetComponent<PlayerMotor>(); //tell unity what we mean when we say motor
-
         myAnimator = GetComponent<PlayerAnimator>(); //tell untiy what we mean when we say anim
         myAnimator.SetStartingDirection(playerNumber); //send the playernum over to anim
 
@@ -63,6 +75,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+
        if (isSelecting == true)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -121,10 +134,10 @@ public class PlayerController : MonoBehaviour {
             //Debug.Log(hInput); //make sure it's working, lol.
 
             //have those inputs affect our direction (transform.right)
-            Vector3 _hMov = (transform.right * hInput); //so our horizontal dir will either be 0, left (-1) or right (1)
+            Vector2 _hMov = (transform.right * hInput); //so our horizontal dir will either be 0, left (-1) or right (1)
 
             //have those inputs be stored in a final "velocity" var which includes speed and time.deltatime
-            Vector3 _velocity = (_hMov * speed); //we have a direction and a speed at which to go there
+            Vector2 _velocity = (_hMov * speed); //we have a direction and a speed at which to go there
 
             //send that _velocity vec3 over to motor.
             motor.ReceiveVelocity(_velocity); //since this is in Update, the motor will constantly receive our current _velocity, and move our player based on that value
@@ -194,5 +207,12 @@ public class PlayerController : MonoBehaviour {
     public void UnfreezeController()
     {
         canInput = true;
+    }
+
+
+
+    public void SpawnHitbox()
+    {
+        Debug.Log(playerNumber + " just punched");
     }
 }

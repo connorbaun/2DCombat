@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour {
 
-    private Vector3 velocity = Vector3.zero; //we will store the _velocity from PlayerController here
+    private Vector3 velocity = Vector2.zero; //we will store the _velocity from PlayerController here
 
 
     [SerializeField]
@@ -27,7 +27,7 @@ public class PlayerMotor : MonoBehaviour {
         
 	}
 
-    public void ReceiveVelocity(Vector3 _velocity)
+    public void ReceiveVelocity(Vector2 _velocity)
     {
         velocity = _velocity;
     }
@@ -43,7 +43,7 @@ public class PlayerMotor : MonoBehaviour {
         rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
     }
 
-    public void PerformDash(Vector3 hMov)
+    public void PerformDash(Vector2 hMov)
     {
         
         rb.AddForce(hMov * dashForce);
